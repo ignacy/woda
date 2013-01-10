@@ -4,5 +4,8 @@
 
 (defonce browser (WebClient. (BrowserVersion/FIREFOX_3_6)))
 
-(defn open [url]
-  (.asText (.getPage browser url)))
+(defn visit [url]
+  (.getPage browser url))
+
+(defn content [page]
+  (.asText page))
