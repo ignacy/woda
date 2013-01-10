@@ -6,4 +6,8 @@
 (against-background
  [(before :facts (setup-test-server) :after (stop-test-server))]
  (fact
-  (content (visit "http://localhost:8008")) => "Hello\nThis is fun!"))
+  (-> (visit "http://localhost:8008")
+      (page-has? "Hello")) => truthy)
+ (fact
+  (-> (visit "http://localhost:8008")
+      (page-has? "Unicorn")) => falsey))
