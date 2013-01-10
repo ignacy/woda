@@ -3,7 +3,8 @@
   :repositories {"stuart" "http://stuartsierra.com/maven2"}
 
   :dependencies [[org.clojure/clojure "1.3.0"]
-                 [net.sourceforge.htmlunit/htmlunit "2.11"]]
+                 [net.sourceforge.htmlunit/htmlunit "2.11"]
+                 [aleph "0.3.0-beta7"]]
 
   :dev-dependencies [[midje "1.4.0"]
                      [com.stuartsierra/lazytest "1.2.3"]])
