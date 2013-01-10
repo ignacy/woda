@@ -2,4 +2,5 @@
   (:use [woda.core])
   (:use midje.sweet))
 
-(fact (+ 2 2) => 5)
+(fact
+ (bbc-top-stories) => 10)
