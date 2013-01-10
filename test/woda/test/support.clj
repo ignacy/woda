@@ -5,10 +5,14 @@
 
 (defn test-fixture [channel request]
   "This handler will return the page used in all other tests"
-  (enqueue channel
-           {:status 200
-            :headers {"content-type" "text/html"}
-            :body (slurp "fixtures/fixture.html") }))
+  (let [uri (str (request :uri))
+        home (slurp "fixtures/fixture.html")
+        second (slurp "fixtures/second.html")
+        response-body (if (= uri "/second.html") second home)]
+    (enqueue channel
+             {:status 200
+              :headers {"content-type" "text/html"}
+              :body  response-body})))
 
 (defonce test-server (atom nil))
 
