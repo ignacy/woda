@@ -1,13 +1,34 @@
 # woda
 
-FIXME: write description
+woda is browser acceptance framework for clojure
 
 ## Usage
 
-FIXME: write
+Here's a quick example of using woda with midje (taken from woda's tests):
+
+```lisp
+
+   (facts "about selecting element by id"
+        (-> (visit "http://localhost:8008")
+            (page-get-element-by-id "subtitle")
+            (content)) => "This is a subtitle"
+
+        (-> (visit "http://localhost:8008")
+            (page-get-element-by-id "NOT_EXISTING_ID")) => (throws ElementNotFoundException ))
+```
+
+## Available methods
+
+- (visit url)
+- (page-has? string)
+- (page-get-element-by-id string)
+- (click-link string)
+- (fill-in field-id value)
+- (click-button name)
+
 
 ## License
 
-Copyright (C) 2013 FIXME
+Copyright (C) 2013 Ignacy Moryc
 
 Distributed under the Eclipse Public License, the same as Clojure.
