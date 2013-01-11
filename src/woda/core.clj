@@ -25,5 +25,14 @@
   "Get HtmlElement using it's id"
   (.getHtmlElementById page id))
 
+(defn page-get-element-by-name [page name]
+  (.getElementByName page name))
+
+(defn fill-in [page input-name value]
+  (.setValueAttribute (page-get-element-by-name page input-name) value))
+
+(defn click-button [page button-text]
+  (.click (.getInputByName (first (.getForms page)) button-text)))
+
 (defn click-link [page text]
   (.click (.getAnchorByText page text)))

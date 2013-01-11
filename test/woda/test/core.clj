@@ -21,4 +21,9 @@
       (click-link "Follow me!")
       (page-has? "I'm on a second page!")) => truthy)
 
- )
+ (fact
+  (-> (visit "http://localhost:8008")
+      (fill-in "name" "Ignacy")
+      (fill-in "password" "secret")
+      (click-button "Log in")
+      (page-has? "You are logged in")) => truthy))
