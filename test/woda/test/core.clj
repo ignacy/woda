@@ -18,10 +18,6 @@
         (-> (visit "http://localhost:8008")
             (html-source)) => ugly-html-source-of-page)
 
- (facts "about executing arbitrary JavaScript code on the page"
-        (-> (visit "http://localhost:8008")
-            (execute-javascript javascript-that-appends-a-text)
-            (content)) => "Hello\nThis is a subtitlewoda is COOL\nThis is fun!\nFollow me! Submit")
 
  (facts "about selecting element by id"
         (-> (visit "http://localhost:8008")
@@ -41,4 +37,14 @@
             (fill-in "name" "Ignacy")
             (fill-in "password" "secret")
             (click-button "Log in")
-            (page-has? "You are logged in")) => truthy))
+            (page-has? "You are logged in")) => truthy)
+
+ (facts "about executing arbitrary JavaScript code on the page"
+        (-> (visit "http://localhost:8008")
+            (execute-javascript javascript-that-appends-a-text)
+            (content)) => "Hello\nThis is a subtitlewoda is COOL\nThis is fun!\nFollow me! Submit"
+
+        (-> (visit "http://localhost:8008")
+            (execute-javascript "2/0 == 'this is wrong'")
+            (page-get-element-by-id "subtitle") ;; let's check if it broke the page
+            (content)) => "This is a subtitle"))
