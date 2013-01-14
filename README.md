@@ -9,16 +9,16 @@ What I noticed was that it was very easy to make Midje work as the correctens ve
 
 Here's a quick example of using woda with midje (taken from [woda's tests](https://github.com/ignacy/woda/blob/master/src/woda/core.clj)):
 
-```lisp
+```clojure
 
-   (facts "about selecting elements by css selectors"
-        (-> (visit "http://localhost:8008")
-            (get-element-by-css ".fun")
-            (first)
-            (content)) => "This is fun!"
+(facts "about selecting elements by css selectors"
+     (-> (visit "http://localhost:8008")
+         (get-element-by-css ".fun")
+         (first)
+         (content)) => "This is fun!"
 
-         (-> (visit "http://localhost:8008")
-            (get-element-by-css "NOT_EXISTING")) => nil)
+     (-> (visit "http://localhost:8008")
+         (get-element-by-css "NOT_EXISTING")) => nil)
 
 ```
 
@@ -30,7 +30,7 @@ most of the basic behaviour.
 
 Example for a full test for authentication feature:
 
-```lisp
+```clojure
 
 (ns your_project_name.test.core
   (:use your_project.code)
@@ -63,7 +63,7 @@ using it.
 But since there are situations where common steps should be extracted, woda provides you with a `defstep` macro.
 Here's an example:
 
-```lisp
+```clojure
 
 (ns your_project_name.test.core
   (:use your_project.code)
