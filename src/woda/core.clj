@@ -8,6 +8,13 @@
 (defonce browser
   (WebClient. (BrowserVersion/FIREFOX_3_6)))
 
+(defmacro defstep
+  "This is a simple macro that allows users to create `steps` for reuse"
+  [name & body]
+  `(def ~name (fn [page#]
+                (-> page#
+                    ~@body))))
+
 (defn visit [url]
   "visit given *url* in the default browser"
   (.getPage browser url))

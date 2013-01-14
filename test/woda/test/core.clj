@@ -4,6 +4,11 @@
   (:use [woda.core])
   (:use midje.sweet))
 
+(defstep login
+  (fill-in "name" "Ignacy")
+  (fill-in "password" "secret")
+  (click-button "Log in"))
+
 (against-background
  [(before :facts (setup-test-server) :after (stop-test-server))]
 
@@ -43,9 +48,7 @@
 
  (facts "about submiting forms"
         (-> (visit "http://localhost:8008")
-            (fill-in "name" "Ignacy")
-            (fill-in "password" "secret")
-            (click-button "Log in")
+            (login)
             (page-has? "You are logged in")) => truthy)
 
  (facts "about executing arbitrary JavaScript code on the page"
