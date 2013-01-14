@@ -22,7 +22,7 @@
    (re-find (re-pattern string) (content page))))
 
 (defn page-get-element-by-id [page id]
-  "Get HtmlElement using it's id"
+  "Get HtmlElement using it's id threows ElementNotFoundException if id is not found"
   (.getHtmlElementById page id))
 
 (defn page-get-element-by-name [page name]
