@@ -7,7 +7,7 @@ woda is a web application acceptance testing library written in clojure. It's in
 I started writing woda as a separate testing framework, but I used [Midje](https://github.com/marick/Midje) to test it along the way.
 What I noticed was that it was very easy to make Midje work as the correctens verification plumbing, and just focus on controling browser's behaviour. And this is the approach I have taken for now, so Midje is required for using woda to acceptance test your web application.
 
-Here's a quick example of using woda with midje (taken from [woda's tests](https://github.com/ignacy/woda/blob/master/src/woda/core.clj)):
+Here's a quick example of using woda with midje (taken from [woda's tests](https://github.com/ignacy/woda/blob/master/test/woda/test/core.clj)):
 
 ```clojure
 
