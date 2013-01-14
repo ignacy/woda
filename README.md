@@ -100,7 +100,7 @@ on each change to the source/test code, and they will be very fast!
 
 ## Docs
 
-[..or an attempt at documenting all api calls](https://github.com/ignacy/woda/blob/master/src/woda/core.clj)
+[..or an attempt at documenting all api calls](https://github.com/ignacy/woda/blob/master/test/woda/test/core.clj)
 
 ## License     
 
