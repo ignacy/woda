@@ -55,7 +55,7 @@ Example of a test for authentication feature:
 This kind of tests are very similar to what you could write using capybara. You could probably extract
 some common code out of those scenarios, although I wouldn't do that. If the scenario gets to long
 to read easily - in most cases it means that it's just to long, and the user wouldn't feel comfortable
-using it. And some duplication in tests like that is good for docummentation.
+using it. And some duplication in tests like that is good for documentation.
 
 But since there are situations where common steps should be extracted, woda provides a `defstep` macro.
 Here's an example:
@@ -98,11 +98,11 @@ by using Midje's autotest feature. If you run:
 You will basically have to wait for the framework to start only the first time. After that the tests will run
 on each change to the source/test code, and they will be very fast!
 
-## Docummentation
+## Docs
 
-[..or an attempt at docummenting all api calls](https://github.com/ignacy/woda/blob/master/src/woda/core.clj)
+[..or an attempt at documenting all api calls](https://github.com/ignacy/woda/blob/master/src/woda/core.clj)
 
-## License
+## License     
 
 Copyright (C) 2013 Ignacy Moryc
 
