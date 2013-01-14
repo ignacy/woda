@@ -24,11 +24,8 @@ Here's a quick example of using woda with midje (taken from [woda's tests](https
 
 ## More detailed example
 
-In my opinion there should be only a handful of acceptance tests for any of the common sizes of web applications.
-Woda makes it easy to write this kind of tests, the idea is to optimize for the common case so you can test
-most of the basic behaviour.
-
-Example for a full test for authentication feature:
+Woda makes it easy to write a handful of acceptance test, using most common interaction methods.
+Example of a test for authentication feature:
 
 ```clojure
 
@@ -55,12 +52,12 @@ Example for a full test for authentication feature:
 
 ```
 
-This kind tests are very similar to what you could write using capybara, you could probably extract
-some common code out of those scenarios, although I wouldn't do that, if the scenario gets to long
+This kind of tests are very similar to what you could write using capybara. You could probably extract
+some common code out of those scenarios, although I wouldn't do that. If the scenario gets to long
 to read easily - in most cases it means that it's just to long, and the user wouldn't feel comfortable
-using it.
+using it. And some duplication in tests like that is good for docummentation.
 
-But since there are situations where common steps should be extracted, woda provides you with a `defstep` macro.
+But since there are situations where common steps should be extracted, woda provides a `defstep` macro.
 Here's an example:
 
 ```clojure
@@ -87,9 +84,23 @@ Here's an example:
 
 One important thing here is, that you need to define your tests before the tests.
 
+
+## Running test
+
+Since woda is using Midje, and really at this point is just a set of helper functions for Midje,
+all test can be run using [lein midje](https://github.com/marick/lein-midje) 
+
+Because it uses HTMLUnit to simulate the browser, the startup time is slow, but you can avoid it completely
+by using Midje's autotest feature. If you run:
+
+    lein midje --lazytest
+    
+You will basically have to wait for the framework to start only the first time. After that the tests will run
+on each change to the source/test code, and they will be very fast!
+
 ## Docummentation
 
-https://github.com/ignacy/woda/blob/master/src/woda/core.clj
+[..or an attempt at docummenting all api calls](https://github.com/ignacy/woda/blob/master/src/woda/core.clj)
 
 ## License
 
