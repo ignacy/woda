@@ -12,6 +12,10 @@
   "visit given *url* in the default browser"
   (.getPage browser url))
 
+(defn html-source [page]
+  "returns page source as HTML"
+  (.asXml page))
+
 (defn content [page]
   "get page content as text without markup"
   (.asText page))
@@ -27,6 +31,11 @@
 
 (defn page-get-element-by-name [page name]
   (.getElementByName page name))
+
+(defn execute-javascript [page javascript]
+  "Executes passed JavaScript code in the context of the page"
+  (.executeJavaScript page javascript)
+  page)
 
 (defn fill-in [page input-name value]
   (.setValueAttribute (page-get-element-by-name page input-name) value))

@@ -2,6 +2,9 @@
   (:use lamina.core)
   (:use aleph.http))
 
+(def ugly-html-source-of-page "<?xml version=\"1.0\" encoding=\"ISO-8859-1\"?>\n<html>\n  <head/>\n  <body>\n    <h1>\n      Hello\n    </h1>\n    <p id=\"subtitle\">\n      This is a subtitle\n    </p>\n    <p>\n      This is fun!\n    </p>\n    <a href=\"/second.html\">\n      Follow me!\n    </a>\n    <form method=\"GET\" id=\"onlyform\" action=\"/second.html\">\n      <input type=\"text\" id=\"name\" name=\"name\" value=\"\"/>\n      <input type=\"text\" id=\"password\" name=\"password\" value=\"\"/>\n      <input type=\"submit\" value=\"Submit\" name=\"Log in\"/>\n    </form>\n  </body>\n</html>\n")
+
+(def javascript-that-appends-a-text "var node = document.createTextNode('woda is COOL'); document.getElementById('subtitle').appendChild(node);")
 
 (defn test-fixture [channel request]
   "This handler will return the page used in all other tests"

@@ -14,6 +14,15 @@
         (-> (visit "http://localhost:8008")
             (page-has? "Unicorn")) => falsey)
 
+ (facts "about checking page source"
+        (-> (visit "http://localhost:8008")
+            (html-source)) => ugly-html-source-of-page)
+
+ (facts "about executing arbitrary JavaScript code on the page"
+        (-> (visit "http://localhost:8008")
+            (execute-javascript javascript-that-appends-a-text)
+            (content)) => "Hello\nThis is a subtitlewoda is COOL\nThis is fun!\nFollow me! Submit")
+
  (facts "about selecting element by id"
         (-> (visit "http://localhost:8008")
             (page-get-element-by-id "subtitle")
