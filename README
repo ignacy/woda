@@ -1,10 +1,10 @@
 # woda
 
-woda is browser acceptance framework for clojure
+woda is browser acceptance framework for clojure. It's inspired by [capybara](https://github.com/jnicklas/capybara) and [abrade](https://github.com/weavejester/abrade)
 
 ## Usage
 
-Here's a quick example of using woda with midje (taken from woda's tests):
+Here's a quick example of using woda with midje (taken from [woda's tests](test source)):
 
 ```lisp
 
