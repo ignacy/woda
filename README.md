@@ -1,15 +1,15 @@
 # woda
 
-woda is browser acceptance framework for clojure. It's inspired by [capybara](https://github.com/jnicklas/capybara) and [abrade](https://github.com/weavejester/abrade)
+woda is a web application acceptance testing library written in clojure. It's inspired by [capybara](https://github.com/jnicklas/capybara) and [abrade](https://github.com/weavejester/abrade)
 
 ## Usage
 
 I started writing woda as a separate testing framework, but I used [Midje](https://github.com/marick/Midje) to test it along the way.
 What I noticed was that it was very easy to make Midje work as the correctens verification plumbing, and just focus on controling browser's behaviour. And this is the approach I have taken for now, so Midje is required for using woda to acceptance test your web application.
 
-Here's a quick example of using woda with midje (taken from [woda's tests](test source)):
+Here's a quick example of using woda with midje (taken from [woda's tests](https://github.com/ignacy/woda/blob/master/src/woda/core.clj)):
 
-```clojure
+```lisp
 
    (facts "about selecting elements by css selectors"
         (-> (visit "http://localhost:8008")
@@ -30,7 +30,7 @@ most of the basic behaviour.
 
 Example for a full test for authentication feature:
 
-```clojure
+```lisp
 
 (ns your_project_name.test.core
   (:use your_project.code)
@@ -63,6 +63,7 @@ using it.
 But since there are situations where common steps should be extracted, woda provides you with a `defstep` macro.
 Here's an example:
 
+```lisp
 
 (ns your_project_name.test.core
   (:use your_project.code)
@@ -88,7 +89,7 @@ One important thing here is, that you need to define your tests before the tests
 
 ## Docummentation
 
-
+https://github.com/ignacy/woda/blob/master/src/woda/core.clj
 
 ## License
 
