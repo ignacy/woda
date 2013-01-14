@@ -25,12 +25,16 @@
   (not-nil?
    (re-find (re-pattern string) (content page))))
 
-(defn page-get-element-by-id [page id]
+(defn get-element-by-id [page id]
   "Get HtmlElement using it's id threows ElementNotFoundException if id is not found"
   (.getHtmlElementById page id))
 
-(defn page-get-element-by-name [page name]
+(defn get-element-by-name [page name]
   (.getElementByName page name))
+
+(defn get-element-by-css [page css]
+  "Get element (list of matching elements) from page using CSS querya"
+  (seq (.querySelectorAll page css)))
 
 (defn execute-javascript [page javascript]
   "Executes passed JavaScript code in the context of the page"
@@ -38,7 +42,7 @@
   page)
 
 (defn fill-in [page input-name value]
-  (.setValueAttribute (page-get-element-by-name page input-name) value))
+  (.setValueAttribute (get-element-by-name page input-name) value))
 
 (defn click-button [page button-text]
   (.click (.getInputByName (first (.getForms page)) button-text)))

@@ -21,11 +21,20 @@
 
  (facts "about selecting element by id"
         (-> (visit "http://localhost:8008")
-            (page-get-element-by-id "subtitle")
+            (get-element-by-id "subtitle")
             (content)) => "This is a subtitle"
 
         (-> (visit "http://localhost:8008")
-            (page-get-element-by-id "NOT_EXISTING_ID")) => (throws ElementNotFoundException ))
+            (get-element-by-id "NOT_EXISTING_ID")) => (throws ElementNotFoundException ))
+
+ (facts "about selecting elements by css selectors"
+        (-> (visit "http://localhost:8008")
+            (get-element-by-css ".fun")
+            (first)
+            (content)) => "This is fun!"
+
+         (-> (visit "http://localhost:8008")
+            (get-element-by-css "NOT_EXISTING")) => nil)
 
  (facts "about clicking links"
         (-> (visit "http://localhost:8008")
@@ -46,5 +55,5 @@
 
         (-> (visit "http://localhost:8008")
             (execute-javascript "2/0 == 'this is wrong'")
-            (page-get-element-by-id "subtitle") ;; let's check if it broke the page
+            (get-element-by-id "subtitle") ;; let's check if it broke the page
             (content)) => "This is a subtitle"))
