@@ -2,6 +2,10 @@
 
 woda is a web application acceptance testing library written in clojure. It's inspired by [capybara](https://github.com/jnicklas/capybara) and [abrade](https://github.com/weavejester/abrade)
 
+## Install
+
+    [org.clojars.ignacy/woda "0.1.0"]
+
 ## Usage
 
 I started writing woda as a separate testing framework, but I used [Midje](https://github.com/marick/Midje) to test it along the way.
