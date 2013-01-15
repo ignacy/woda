@@ -1,4 +1,5 @@
 (ns woda.core
+  (:import [com.gargoylesoftware.htmlunit ElementNotFoundException])
   (:import [com.gargoylesoftware.htmlunit
             BrowserVersion WebClient]))
 
@@ -62,10 +63,15 @@
   [page input-name value]
   (.setValueAttribute (get-element-by-name page input-name) value))
 
+(defn get-form-by-name
+  "Gets form by name"
+  [page name]
+  (.getFormByName page name))
+
 (defn click-button
   "Click on a button with *button-text*"
-  [page button-text]
-  (.click (.getInputByName (first (.getForms page)) button-text)))
+  [form button-text]
+  (.click (.getInputByName form button-text)))
 
 (defn click-link
   "Click link with *text*"

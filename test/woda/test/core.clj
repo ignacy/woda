@@ -7,6 +7,7 @@
 (defstep login
   (fill-in "name" "Ignacy")
   (fill-in "password" "secret")
+  (get-form-by-name "onlyform")
   (click-button "Log in"))
 
 (against-background
@@ -44,12 +45,19 @@
  (facts "about clicking links"
         (-> (visit "http://localhost:8008")
             (click-link "Follow me!")
-            (page-has? "I'm on a second page!")) => truthy)
+            (page-has? "I'm on a second page!")) => truthy
+
+        (-> (visit "http://localhost:8008")
+            (click-link "NOTEXISTING")) => (throws ElementNotFoundException))
 
  (facts "about submiting forms"
         (-> (visit "http://localhost:8008")
             (login)
-            (page-has? "You are logged in")) => truthy)
+            (page-has? "You are logged in")) => truthy
+
+        (-> (visit "http://localhost:8008")
+            (get-form-by-name "onlyform")
+            (click-button "THERE_IS_NO_SUCH_BUTTON")) => (throws ElementNotFoundException))
 
  (facts "about executing arbitrary JavaScript code on the page"
         (-> (visit "http://localhost:8008")
