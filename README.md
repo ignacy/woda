@@ -88,21 +88,39 @@ One important thing here is, that you need to define your tests before the tests
 ## Running test
 
 Since woda is using Midje, and really at this point is just a set of helper functions for Midje,
-all test can be run using [lein midje](https://github.com/marick/lein-midje) 
+all test can be run using [lein midje](https://github.com/marick/lein-midje)
 
 Because it uses HTMLUnit to simulate the browser, the startup time is slow, but you can avoid it completely
 by using Midje's autotest feature. If you run:
 
     lein midje --lazytest
-    
+
 You will basically have to wait for the framework to start only the first time. After that the tests will run
 on each change to the source/test code, and they will be very fast!
 
 ## Docs
 
-[..or an attempt at documenting all api calls](https://github.com/ignacy/woda/blob/master/test/woda/test/core.clj)
+Available methods:
 
-## License     
+- (visit url) - basic navigation, visits url in the default browser, returns a page. Most tests start with this call, and use threading macro
+to pass the resulting page implicitly through other functions.
+
+- (get-element-by-id _page_ id) - given page and id searches for html element with that ID on the page
+- (get-element-by-name _page_ name) - matches elements by name attribute
+- (get-element-by-css _page_ css) - use css query to find element on the page
+
+- (execute-javascript _page_ javascript) - executes any javascript in page context
+
+- (click-button _page_ button-text)
+- (click-link _page_ link-text)
+- (fill-in _page_ input-name value)
+
+- (page-has? _page_ string)
+- (content _page_) - returns page content as string (without markup)
+- (html-source _page_) - returns page source (with markup)
+
+
+## License
 
 Copyright (C) 2013 Ignacy Moryc
 
