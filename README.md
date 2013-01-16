@@ -100,7 +100,9 @@ Since woda is using Midje, and really at this point is just a set of helper func
 all test can be run using [lein midje](https://github.com/marick/lein-midje)
 
 Because it uses HTMLUnit to simulate the browser, the startup time is slow, but you can avoid it completely
-by using Midje's autotest feature. If you run:
+by using Midje's autotest feature (you will need dev-dependencies to include `[com.stuartsierra/lazytest "1.2.3"]`). 
+
+If you run:
 
     lein midje --lazytest
 
