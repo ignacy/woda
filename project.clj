@@ -1,4 +1,4 @@
-(defproject org.clojars.ignacy/woda "0.1.1"
+(defproject org.clojars.ignacy/woda "0.1.3"
   :description "Browser acceptance testing for Clojure"
   :url "https://github.com/ignacy/woda"
   :repositories {"stuart" "http://stuartsierra.com/maven2"}
