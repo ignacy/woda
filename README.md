@@ -90,8 +90,8 @@ One important thing here is, that you need to define your tests before the tests
 
 ## Server setup
 
-woda doesn't care about how you setup your server - it's enough that you `visit` correct url, 
-but if it's a ring based solution, you can do something similar to what is 
+woda doesn't care about how you setup your server - it's enough that you `visit` correct url,
+but if it's a ring based solution, you can do something similar to what is
 [done in the tests](https://github.com/ignacy/woda/blob/master/test/woda/test/support.clj#L24)
 
 ## Running test
@@ -104,7 +104,7 @@ by using Midje's autotest feature (you will need dev-dependencies to include `[c
 
 If you run:
 
-    lein midje --lazytest
+    lein midje :autotest
 
 You will basically have to wait for the framework to start only the first time. After that the tests will run
 on each change to the source/test code, and they will be very fast!

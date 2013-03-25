@@ -3,12 +3,11 @@
   :url "https://github.com/ignacy/woda"
   :repositories {"stuart" "http://stuartsierra.com/maven2"}
 
-  :dependencies [[org.clojure/clojure "1.3.0"]
+  :dependencies [[org.clojure/clojure "1.4.0"]
                  [net.sourceforge.htmlunit/htmlunit "2.11"]
                  [aleph "0.3.0-beta7"]]
 
   :license {:name "Eclipse Public License"
             :distribution :repo}
 
-  :dev-dependencies [[midje "1.4.0"]
-                     [com.stuartsierra/lazytest "1.2.3"]])
+  :profiles {:dev {:dependencies [[midje "1.5.0"]]}})
