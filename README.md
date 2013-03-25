@@ -3,8 +3,6 @@
 woda is a web application acceptance testing library written in clojure. It's inspired by [capybara](https://github.com/jnicklas/capybara) and [abrade](https://github.com/weavejester/abrade)
 
     [org.clojars.ignacy/woda "0.1.1"]
-    
-(To make it work you will allso need Midje [midje "1.4.0"])    
 
 ## Usage
 
@@ -100,7 +98,7 @@ Since woda is using Midje, and really at this point is just a set of helper func
 all test can be run using [lein midje](https://github.com/marick/lein-midje)
 
 Because it uses HTMLUnit to simulate the browser, the startup time is slow, but you can avoid it completely
-by using Midje's autotest feature (you will need dev-dependencies to include `[com.stuartsierra/lazytest "1.2.3"]`). 
+by using Midje's autotest feature (you will need dev-dependencies to include `[com.stuartsierra/lazytest "1.2.3"]`).
 
 If you run:
 

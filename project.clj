@@ -5,6 +5,7 @@
 
   :dependencies [[org.clojure/clojure "1.4.0"]
                  [net.sourceforge.htmlunit/htmlunit "2.11"]
+                 [midje "1.5.0"]
                  [aleph "0.3.0-beta7"]]
 
   :license {:name "Eclipse Public License"
