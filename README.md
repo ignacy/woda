@@ -95,17 +95,9 @@ but if it's a ring based solution, you can do something similar to what is
 ## Running test
 
 Since woda is using Midje, and really at this point is just a set of helper functions for Midje,
-all test can be run using [lein midje](https://github.com/marick/lein-midje)
-
-Because it uses HTMLUnit to simulate the browser, the startup time is slow, but you can avoid it completely
-by using Midje's autotest feature (you will need dev-dependencies to include `[com.stuartsierra/lazytest "1.2.3"]`).
-
-If you run:
+all test can be run using [lein midje](https://github.com/marick/lein-midje), for example with autotest:
 
     lein midje :autotest
-
-You will basically have to wait for the framework to start only the first time. After that the tests will run
-on each change to the source/test code, and they will be very fast!
 
 ## Docs
 
