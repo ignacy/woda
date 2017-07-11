@@ -1,3 +1,5 @@
+[![Clojars Project](https://img.shields.io/clojars/v/org.clojars.ignacy/woda.svg)](https://clojars.org/org.clojars.ignacy/woda)
+
 # woda
 
 woda is a web application acceptance testing library written in clojure. It's inspired by [capybara](https://github.com/jnicklas/capybara) and [abrade](https://github.com/weavejester/abrade)
